@@ -53,7 +53,7 @@ const batch = await chain.batch([
 console.log("\n=== batch() ===");
 batch.forEach((res, i) => console.log(`${i + 1}:`, res.slice(0, 100), "..."));
 
-// ── 3. Chaining with .pipe() is just composition ────────────────────
+// ── 3. Chaining with .pipe() is just composition ───
 // You can also use RunnableSequence explicitly:
 import { RunnableSequence } from "@langchain/core/runnables";
 

@@ -18,13 +18,13 @@ const model = new ChatGroq({
   maxTokens: 200,
 });
 
-// ── 1. Without parser — returns full AIMessage object ───────────────
+// ── 1. Without parser — returns full AIMessage object ──
 const raw = await model.invoke("What is TypeScript?");
 console.log("=== Without Parser ===");
 console.log("Type:", typeof raw);           // object (AIMessage)
 console.log("Content:", raw.content);       // The actual text
 
-// ── 2. With StringOutputParser — returns just the string ────────────
+// ── 2. With StringOutputParser — returns just the string ──
 const parser = new StringOutputParser();
 
 const chain = ChatPromptTemplate.fromMessages([

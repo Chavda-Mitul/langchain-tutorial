@@ -23,7 +23,7 @@ const model = new ChatGroq({
   maxTokens: 200,
 });
 
-// ── 1. Basic ChatPromptTemplate ─────────────────────────────────────
+// ── 1. Basic ChatPromptTemplate ──
 const chatPrompt1 = ChatPromptTemplate.fromMessages([
   ["system", "You are a {role}. Be concise."],
   ["human", "{question}"],
@@ -38,7 +38,7 @@ const res1 = await chain1.invoke({
 console.log("=== Basic Chat Prompt ===");
 console.log(res1.content);
 
-// ── 2. Using explicit message template classes ──────────────────────
+// ── 2. Using explicit message template classes ──
 const chatPrompt2 = ChatPromptTemplate.fromMessages([
   SystemMessagePromptTemplate.fromTemplate(
     "You are an expert in {language}."
@@ -54,7 +54,7 @@ const res2 = await chain2.invoke({ language: "TypeScript" });
 console.log("\n=== Explicit Message Templates ===");
 console.log(res2.content);
 
-// ── 3. MessagesPlaceholder — inject dynamic message history ─────────
+// ── 3. MessagesPlaceholder — inject dynamic message history ──
 // This is KEY for conversation memory!
 const chatPrompt3 = ChatPromptTemplate.fromMessages([
   ["system", "You are a helpful assistant."],

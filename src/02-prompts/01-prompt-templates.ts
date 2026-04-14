@@ -17,7 +17,7 @@ const model = new ChatGroq({
   maxTokens: 200,
 });
 
-// ── 1. Basic PromptTemplate ─────────────────────────────────────────
+// ── 1. Basic PromptTemplate ──
 const template1 = PromptTemplate.fromTemplate(
   "Explain {topic} to a {audience} in 2-3 sentences."
 );
