@@ -19,7 +19,7 @@ const model = new ChatGroq({
   maxTokens: 200,
 });
 
-// ── 1. Basic chain: prompt → model → parser ─────────────────────────
+// ── 1. Basic chain: prompt → model → parser ──
 const chain = ChatPromptTemplate.fromMessages([
   ["system", "You are an expert in {subject}."],
   ["human", "{question}"],
@@ -35,7 +35,7 @@ const result = await chain.invoke({
 console.log("=== Basic Chain ===");
 console.log(result);
 
-// ── 2. Chain methods — every chain supports these ───────────────────
+// ── 2. Chain methods — every chain supports these ──
 
 // .invoke() — single input, single output
 const single = await chain.invoke({
@@ -53,7 +53,7 @@ const batch = await chain.batch([
 console.log("\n=== batch() ===");
 batch.forEach((res, i) => console.log(`${i + 1}:`, res.slice(0, 100), "..."));
 
-// ── 3. Chaining with .pipe() is just composition ───
+// ── 3. Chaining with .pipe() is just composition ──
 // You can also use RunnableSequence explicitly:
 import { RunnableSequence } from "@langchain/core/runnables";
 

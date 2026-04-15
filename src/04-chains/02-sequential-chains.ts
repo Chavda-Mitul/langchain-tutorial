@@ -20,7 +20,7 @@ const model = new ChatGroq({
 });
 const parser = new StringOutputParser();
 
-// ── 1. Two-step chain: Generate → Critique ──────────────────────────
+// ── 1. Two-step chain: Generate → Critique ──
 
 // Step 1: Generate a short story
 const generatePrompt = ChatPromptTemplate.fromMessages([
@@ -65,21 +65,16 @@ const improvePrompt = ChatPromptTemplate.fromMessages([
 ]);
 
 const blogChain = outlinePrompt
-  .pipe(model).pipe(parser)
-  .pipe(new RunnableLambda({ func: (outline: string) => {
-    console.log("\n--- Outline ---");
-    console.log(outline);
-    return { outline };
-  }}))
+  .pipe(model)
+  .pipe(parser)
+  .pipe(new RunnableLambda({ func: (outline: string) => ({outline})}))
   .pipe(draftPrompt)
-  .pipe(model).pipe(parser)
-  .pipe(new RunnableLambda({ func: (draft: string) => {
-    console.log("\n--- Draft ---");
-    console.log(draft);
-    return { draft };
-  }}))
+  .pipe(model)
+  .pipe(parser)
+  .pipe(new RunnableLambda({ func: (draft: string) => ({draft})}))
   .pipe(improvePrompt)
-  .pipe(model).pipe(parser);
+  .pipe(model)
+  .pipe(parser);
 
 console.log("\n=== Three-Step Blog Chain ===");
 const blog = await blogChain.invoke({ topic: "Why TypeScript is worth learning" });

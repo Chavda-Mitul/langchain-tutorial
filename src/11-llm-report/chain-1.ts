@@ -45,10 +45,10 @@ console.log("\n=== Mermaid Diagram (paste into https://mermaid.live) ===");
 console.log(graph.drawMermaid());
 
 // // ── Run the chain ──
-// const result = await chain.invoke({
-//     topic:'Quantum computers in IT',
-//     question: 'future of the quantum computer in tech for job what benifit i will get if i join start learning this on my own'
-// })
+const result = await chain.invoke({
+    topic:'Quantum computers in IT',
+    question: 'future of the quantum computer in tech for job what benifit i will get if i join start learning this on my own'
+})
 // console.log("\n=== Result ===");
-// console.log(result);
+console.log(result);
 

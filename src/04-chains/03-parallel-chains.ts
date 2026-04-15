@@ -24,7 +24,7 @@ const model = new ChatGroq({
 });
 const parser = new StringOutputParser();
 
-// ── 1. RunnableParallel — run branches concurrently ─────────────────
+// ── 1. RunnableParallel — run branches concurrently ──
 const prosChain = ChatPromptTemplate.fromMessages([
   ["human", "List 3 pros of {topic}. Be concise."],
 ]).pipe(model).pipe(parser);

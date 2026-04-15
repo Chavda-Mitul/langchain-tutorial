@@ -52,7 +52,7 @@ const routingChain = new RunnableLambda({
     console.log(`[Router] Category: ${trimmed}`);
     return { question: input.question, category: trimmed };
   },
-}).pipe(
+}).pipe( 
   RunnableBranch.from([
     // [condition, chain] pairs — first match wins
     [
@@ -69,6 +69,7 @@ const routingChain = new RunnableLambda({
     generalPrompt,
   ])
 );
+
 
 // Test with different types of questions
 const questions = [
