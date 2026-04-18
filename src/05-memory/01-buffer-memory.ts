@@ -24,7 +24,7 @@ const model = new ChatGroq({
   maxTokens: 200,
 });
 
-// ── 1. Setup: Prompt with a history placeholder ─────────────────────
+// ── 1. Setup: Prompt with a history placeholder ──
 const prompt = ChatPromptTemplate.fromMessages([
   ["system", "You are a helpful assistant. Be concise."],
   new MessagesPlaceholder("history"),   // Conversation history goes here
